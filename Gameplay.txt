@@ -1,0 +1,39 @@
+Univers:
+  galaxy, etoiles, planetes, lunes, stations, asteroides. 
+
+Ressources:
+   humaine, construction, energie, nourriture
+
+Des technologies a découvrir: le fait de construire un truc en debloque d'autres
+  exemple: si corvette alors fregate
+  
+Unites de production
+	- chantier de vaisseau
+	- fermes
+	- mine
+	- centrales energie
+	
+Unites d'action
+	- vaisseau
+	
+Deroulement du jeu:
+  état de depart: colonie sur lune avec un peu de chaque ressource.
+    
+Visualisation:
+   Un panneau lateral montre en fonctione de la selection
+		- les ressources et les Unites pour l'objet selectionné (planetes, lunes, etc..)
+        - les actions possibles (construire des unites, deplaces des unites)  	
+
+		
+
+ 
+
+
+
+
+
+
+
+
+
+
