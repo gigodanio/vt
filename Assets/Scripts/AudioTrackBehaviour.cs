@@ -38,11 +38,11 @@ public class AudioTrackBehaviour : MonoBehaviour {
 
             res = p1Volume + pente * (altitude - p1Altitude);
 
-            GameObject.Find ("AudioDebugInfos").GetComponent <Text>().text = "pente: " + pente;
-			GameObject.Find ("AudioDebugInfos").GetComponent <Text>().text = "p1Volume: " + p1Volume;
+            GameObject.Find ("DebugLine1").GetComponent <Text>().text = "pente: " + pente;
+			GameObject.Find ("DebugLine1").GetComponent <Text>().text = "p1Volume: " + p1Volume;
         }
 
-		GameObject.Find ("AudioDebugInfos").GetComponent <Text>().text = altitude + " " + res;
+		GameObject.Find ("DebugLine1").GetComponent <Text>().text = altitude + " " + res;
 
         return res;
     }

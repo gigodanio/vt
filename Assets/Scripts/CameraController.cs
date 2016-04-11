@@ -39,20 +39,20 @@ public class CameraController : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0)) {
 			RaycastHit starHit;
 			mousePointing = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition) ;
-			GameObject.Find ("PointingDebug").GetComponent <Text> ().text = mousePointing.ToString();
+			GameObject.Find ("DebugLine2").GetComponent <Text> ().text = mousePointing.ToString();
 			if (Physics.Raycast(mousePointing,2000))
 			{
 				Vector3 starhitpos;
 				starSelected = Physics.RaycastAll(mousePointing,2000);
 			    starHit = starSelected[0];
-				GameObject.Find ("PointingDebug2").GetComponent <Text> ().text =starHit.collider.gameObject.name + "length" + starSelected.Length;
+				GameObject.Find ("DebugLine2").GetComponent <Text> ().text =starHit.collider.gameObject.name + "length" + starSelected.Length;
 				SetFocus(starHit.collider.gameObject) ;
 				galacticCamPos = transform.position;
 				starhitpos = starHit.collider.gameObject.transform.position;
 				systemCamBound = new Bounds(new Vector3(starhitpos.x,starhitpos.y + 6,starhitpos.z),new Vector3(6,8,6));
 				currentCamBound = systemCamBound;
 			} else
-				GameObject.Find ("PointingDebug2").GetComponent <Text> ().text ="Pointing nowhere";
+				GameObject.Find ("DebugLine2").GetComponent <Text> ().text ="Pointing nowhere";
 
 		}
 
