@@ -19,23 +19,47 @@ public class Sector {
 	public List<Sector> Sectors;
 	public string Name;
 	public GameObject objSect;
+	public GameObject spriteSect;
+	public GameObject[] planet;
+	public int nbPlanets = 0;
 
 
-	public Sector(string name="noname",float x = 0F, float z = 0F) {
-		SpriteRenderer sprt;
-		Transform trfm;
-		//Rect rect = new Rect(0,0,1,1);
-		//Vector2 v2 = new Vector2(0.5F, 0.5F); 
+	public Sector(string name,Vector3 pos,int nbplanets = 0) {
+		GameObject strlght;
+
 		Sectors = new List<Sector> ();
 		Name = name;
-		//spawn object
+		nbPlanets = nbplanets;
+
+		//spawn base object of sector
 		objSect = new GameObject("GO "+ name);
-		//Add Components
-		sprt = objSect.AddComponent<SpriteRenderer>();
 		objSect.AddComponent<SphereCollider> ();
-		trfm = objSect.GetComponent<Transform> ();
-		trfm.SetParent(GameObject.Find("StarsSystem").transform,false);
-		trfm.position = new Vector3 (x, 10F, z);
-		sprt.sprite = GameObject.Find ("SpriteModel").GetComponent <SpriteRenderer > ().sprite;
+		objSect.AddComponent<SectorScript>();
+		objSect.GetComponent<Transform>().SetParent(GameObject.Find("StarsSystem").transform,false);
+		objSect.GetComponent<Transform> ().position = pos;
+
+		// Create Sprite for star rendering
+		spriteSect = new GameObject ("Sprite " + name);
+		spriteSect.AddComponent<SpriteRenderer>();
+		spriteSect.GetComponent<SpriteRenderer>().sprite = GameObject.Find ("SpriteModel").GetComponent <SpriteRenderer > ().sprite;
+		spriteSect.GetComponent<Transform> ().SetParent(objSect.transform,false);
+
+		// Create light for sector
+		strlght = new GameObject ("Light " + name);
+		strlght.AddComponent<Light> ();
+		strlght.GetComponent<Light> ().type = LightType.Point;
+		strlght.GetComponent<Light> ().range = 10;
+		strlght.GetComponent<Transform> ().SetParent(objSect.transform,false);
+
+		//Add planets
+		if (nbplanets != 0) {
+			planet = new GameObject[nbplanets];
+			for (int i = 0; i<nbplanets; i++) {
+				planet[i] = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+				planet[i].name = name + "Planet " + i;
+				planet[i].GetComponent<Transform>().position = new Vector3(Random.Range(-5,5),0,Random.Range(-5,5));
+				planet[i].GetComponent<Transform>().SetParent(objSect.transform,false);
+			}
+		}
 	}
 }
