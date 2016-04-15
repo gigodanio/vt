@@ -4,17 +4,20 @@ using System.Collections;
 
 public class AudioTrackBehaviour : MonoBehaviour {
 
+	[Range(0.6f, 10.0f)]
+	public float p1Altitude;
+	[Range(-4.0f, 0)]
     public float p1Volume;
-    public float p1Altitude;
 
-    public float p2Volume;
-    public float p2Altitude;
-
+	[Range(0.6f, 10.0f)]
+	public float p2Altitude;
+	[Range(-4.0f, 0)]
+	public float p2Volume;
+	
 	void Start () {
         	
 	}
 	
-
 	void Update () {
 	
 	}
@@ -37,13 +40,8 @@ public class AudioTrackBehaviour : MonoBehaviour {
 
 
             res = p1Volume + pente * (altitude - p1Altitude);
-
-            GameObject.Find ("DebugLine1").GetComponent <Text>().text = "pente: " + pente;
-			GameObject.Find ("DebugLine1").GetComponent <Text>().text = "p1Volume: " + p1Volume;
         }
-
-		GameObject.Find ("DebugLine1").GetComponent <Text>().text = altitude + " " + res;
-
+	
         return res;
     }
 }
