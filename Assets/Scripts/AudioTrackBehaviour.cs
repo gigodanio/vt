@@ -28,7 +28,7 @@ public class AudioTrackBehaviour : MonoBehaviour {
 
         if (altitude <= p1Altitude)
             res = p1Volume;
-        else if (altitude >= p2Altitude)
+        else if (altitude >= p2Altitude) 
             res = p2Volume;
         else
         {
