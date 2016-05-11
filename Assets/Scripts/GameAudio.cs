@@ -19,6 +19,7 @@ public class GameAudio : MonoBehaviour {
     void Update () {
 
         //part 1: Mix Music = f(camera.altitude)
+        /*
 		if (Camera) {
 			//switch (Camera.altitude)
 			//Camera.altitude
@@ -35,6 +36,8 @@ public class GameAudio : MonoBehaviour {
 
 		GameObject.Find ("DebugLine6").GetComponent <Text> ().text = Camera.altitude.ToString();
 		GameObject.Find ("DebugLine7").GetComponent <Text>().text = ActiveSnapshot.name;
+        */
+
 		mixMusic();
 
 		GameObject.Find ("DebugLine6").GetComponent <Text> ().text = Camera.altitude.ToString();
