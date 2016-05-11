@@ -19,6 +19,7 @@ public class GameAudio : MonoBehaviour {
     void Update () {
 
         //part 1: Mix Music = f(camera.altitude)
+<<<<<<< HEAD
 		if (Camera) {
 			//switch (Camera.altitude)
 			//Camera.altitude
@@ -35,10 +36,17 @@ public class GameAudio : MonoBehaviour {
 
 		GameObject.Find ("DebugLine6").GetComponent <Text> ().text = Camera.altitude.ToString();
 		GameObject.Find ("DebugLine7").GetComponent <Text>().text = ActiveSnapshot.name;
+=======
+		mixMusic();
+
+		GameObject.Find ("DebugLine6").GetComponent <Text> ().text = Camera.altitude.ToString();
+		//GameObject.Find ("DebugLine7").GetComponent <Text>().text = ActiveSnapshot.name;
+>>>>>>> origin/master
 
         //todo: part 2: play fx .....        
 	}
 	    
+<<<<<<< HEAD
     private void mixMusic(string SnapshotName, float TransitionTime=2)
     {               
 	    if (!ActiveSnapshot || (ActiveSnapshot.name != SnapshotName)) {
@@ -48,5 +56,15 @@ public class GameAudio : MonoBehaviour {
 				ActiveSnapshot.TransitionTo (TransitionTime);		
 		}
 
+=======
+    private void mixMusic()
+    {     
+		//each track volume = f(AudioTrackBehaviour)
+        MixerMain.SetFloat("bells_volume", GameObject.Find("bells").GetComponent<AudioTrackBehaviour>().GetVolume(Camera.altitude));
+        MixerMain.SetFloat("bass_fx_volume", GameObject.Find("bassfx").GetComponent<AudioTrackBehaviour>().GetVolume(Camera.altitude));
+        MixerMain.SetFloat("drum_trad_volume", GameObject.Find("drumtrad").GetComponent<AudioTrackBehaviour>().GetVolume(Camera.altitude));
+        MixerMain.SetFloat("bass_massive_volume", GameObject.Find("bass-massive").GetComponent<AudioTrackBehaviour>().GetVolume(Camera.altitude));
+        MixerMain.SetFloat("bass_melody_volume", GameObject.Find("bass-melody").GetComponent<AudioTrackBehaviour>().GetVolume(Camera.altitude));
+>>>>>>> origin/master
     }
 }
