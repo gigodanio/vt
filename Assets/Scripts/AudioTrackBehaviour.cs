@@ -4,14 +4,14 @@ using System.Collections;
 
 public class AudioTrackBehaviour : MonoBehaviour {
 
-	[Range(0.6f, 10.0f)]
+	[Range(0.4f, 10.0f)]
 	public float p1Altitude;
-	[Range(-4.0f, 0)]
+	[Range(-40.0f, 0)]
     public float p1Volume;
 
-	[Range(0.6f, 10.0f)]
+	[Range(0.4f, 10.0f)]
 	public float p2Altitude;
-	[Range(-4.0f, 0)]
+	[Range(-40.0f, 0)]
 	public float p2Volume;
 	
 	void Start () {
